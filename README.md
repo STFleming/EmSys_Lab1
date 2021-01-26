@@ -38,14 +38,14 @@ _Tips_:
 * _However, you have 8 data bits, and no parity bits._
 
 ### Hello World!
-This exercise 
+__TODO:__ _This exercise_ 
 
 --------------------
 ### Square Wave Generator
 1. Using ```digitalWrite(pin, HIGH|LOW)``` write code to generate a square wave with the highest frequency you possible can. 
 2. Using your LA measure this maximum frequency and report it in your logbook. 
 3. Do you notice anything unusual about the output? Run a resonable length capture to maybe see something strange (1M samples at 24MHz). Comment on what you think might be causing this?
-4. Modify your code above to generate two square waves with as fast a frequency as possible? What is the new maximum frequency? If it has changed comment on why?
+4. Modify your code above to generate two square waves with as fast a frequency as possible. What is the new maximum frequency? If it has changed comment on why you think that is the case?
 5. Using the captured trace from 4. (the item above), estimate the time a ```digitalWrite()``` function call takes, and estimate the ```loop()``` overheads.
 6. Use your estimates to calculate what you expect the maximum frequency can be when generating three square waves.
 7. Modify your code to generate three square waves and measure the maximum possible frequency, how close was your estimation in 6.?
