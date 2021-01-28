@@ -20,7 +20,9 @@ This lab aims to familiarise you with:
 __TODO:__ _logbook format_
 
 ### How your LA and ESP32 are connected
-__TODO:__ _Include a diagram showing the wiring between the LA and ESP32_
+![](imgs/wiring_diagram.svg)
+
+Each of the pins next to the TinyPico correspond to GPIO pins in [[this diagram (upsidedown)](https://raw.githubusercontent.com/STFleming/EmSys/main/imgs/tinypico-specs-v2.jpg)].
 
 -----------------------------
 ### What is your secret word?
@@ -36,11 +38,11 @@ Your trace should look something similar to this.
 4. Write your secret word in your logbook.
 
 _Tips_: 
-* _Only common Baud rates are used. The UART Tx pin will be transimitting on only one of these 9600, 38400, and 115200_
+* _Only common Baud rates are used. The UART Tx pin will be transimitting at only one of the following baudrates: 9600, 38400, and 115200_
 * _You do not know the baud rate of the signal you are trying to intercept, this may require trial and error to find the correct parameter_
 * _However, you have 8 data bits, and no parity bits._
 
-UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>``. 
+UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>``. A nice more detailed discussion of the UART protocol can be found [[here](https://www.circuitbasics.com/basics-uart-communication/)]. 
 
 ### Hello World! 
 In the Lab1 git repository there is some code that will print out ``HelloWorld`` on pin 23 of the TinyPico which is connected to channel D0 on your LA. [[link to the code](https://github.com/STFleming/EmSys_Lab1/blob/main/src/HelloWorld/HelloWorld.ino)] 
@@ -55,11 +57,11 @@ However, if you feel more comfortable using the Arduino IDE then you can follow 
 --------------------
 ### Square Wave Generator
 
-Next you are going to use Arduino to generate square waves from your device and measure the maximum possible frequency. In the second lecture there I explained the following which will be useful for this lab:
+Next you are going to use Arduino to generate square waves from your device and measure the maximum possible frequency. In the second lecture I explained the following which will be useful for this lab:
 * The basic structure of an Arduino sketch i.e. what the ``setup()`` and ``loop()`` functions do.
 * How to drive an output pin ``HIGH`` and ``LOW`` using ``digitalWrite()`` [[Arduino digitalWrite documentation](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)].
 * How to make your tinyPico wait using ``delay()`` and ``delayMicroseconds()`` [[Arduino Delay Documentation](https://www.arduino.cc/reference/en/language/functions/time/delay/)].
-* What a pointer, the address map of the TinyPico, and how we interact with hardware through pointers.
+* What a pointer is, the address map of the TinyPico, and how we interact with hardware through pointers.
 
 If you missed the lecture or want to recap these, the recording is available [[here]()] ``<passcode: >``.
 
@@ -92,3 +94,15 @@ TODO:
 
 ----------------------
 ### dotDevice -- Communicating with other embedded systems
+
+In the final part of this lab we are going to use WebSockets to communicate with a central server in the EmSys lab. The central server contains a virtual world, with a virtual embedded device for each of the lab groups on the course. This virtual embedded device is called a ``dotDevice`` and it has a data sheet that can be found [[here](https://github.com/STFleming/EmSys_dotDevice)].
+
+You can make your dotDevice move around, change colour, change size, and say something. It also has some command memory and a timer, allowing you to load in a sequence and execute it. However, there is a strict protocol for interacting with your dotDevice, which you can find in the data sheet.
+
+To communicate with our dotDevice we will be using WebSockets. You can use the example here as a base to start with. However, if you send HelloWorld to the EmSys server nothing will happen. 
+
+There are two servers. One for dotDevices connected within the lab, and another for external dotDevices that people have at home.
+
+1. Make your dotDevice say something.
+2. Make your dotDevice do a dance.
+3. 
