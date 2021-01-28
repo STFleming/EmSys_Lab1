@@ -5,7 +5,7 @@ This lab consists of a number of exercises:
 * _"What is your secret word?"_ -- where you will use pulseview to determine the secret word your ESP32 is transmitting. 
 * _"Hello World!"_  -- where you will program your ESP32 to send a UART message of your own.
 * _"Square Wave Generator"_ -- where you will generate square waves as fast as you can and calculate the arduino library overheads.
-* _"dotDevice"_ -- where you will interact with your virtual dotDevice on the centralised emSys webserver via WebSockets.
+* _"dotDevice"_ -- where you will interact with your virtual dotDevice on the centralised EmSys webserver via WebSockets.
  
 This lab aims to familiarise you with:
 * The Arduino IDE and it's overheads
@@ -13,13 +13,7 @@ This lab aims to familiarise you with:
 * Timing issues in embedded systems
 * WebSockets and communications between embedded devices
 
-
-### Useful Acronyms and Terms
-| Acronym/Term | Meaning        |
-|---------|----------------|
-| LA      | Logic Analyser      |
-| GPIO    | General Purpose Input Output |
-| UART    | Uniersal Asynchronous Receiver-Transmitter |
+[[A list of useful acronym and terms can be found here]()]
 
 ----------------------------
 ### Submission guide
@@ -46,10 +40,18 @@ _Tips_:
 * _You do not know the baud rate of the signal you are trying to intercept, this may require trial and error to find the correct parameter_
 * _However, you have 8 data bits, and no parity bits._
 
-UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>```. 
+UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>``. 
 
 ### Hello World! 
+In the Lab1 git repository there is some code that will print out ``HelloWorld`` on pin 23 of the TinyPico which is connected to channel D0 on your LA. [[link to the code](https://github.com/STFleming/EmSys_Lab1/blob/main/src/HelloWorld/HelloWorld.ino)] 
 
+Do the following for your logbook:
+1. Modify the code to print a message of your choice
+2. Compile and upload the code to your board.
+If you have decided to try the command line option for compilation and upload then simply type into your command prompt: ``make HelloWorld``
+This command will compile your sketch and upload your modified code.
+However, if you feel more comfortable using the Arduino IDE then you can follow [[this video tutorial]()].
+3. Use the pulseview low-level protocol decoder to capture the message you are printing and include a screenshot in your logbook. 
 --------------------
 ### Square Wave Generator
 
@@ -60,7 +62,8 @@ Next you are going to use Arduino to generate square waves from your device and 
 * What a pointer, the address map of the TinyPico, and how we interact with hardware through pointers.
 
 If you missed the lecture or want to recap these, the recording is available [[here]()] ``<passcode: >``.
-Now you will put all that knowledge to good use.
+
+Now you will put all that knowledge to good use testing the limits of your board.
 
 1. Using ```digitalWrite(pin, HIGH|LOW)``` write code to generate a square wave with the highest frequency you possible can. 
 2. Using your LA measure this maximum frequency and report it in your logbook. 
