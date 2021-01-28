@@ -10,7 +10,7 @@ This lab consists of a number of exercises:
 This lab aims to familiarise you with:
 * The Arduino IDE and it's overheads
 * Capturing waveforms from the logic analyser in PulseView
-* timing issues in embedded systems
+* Timing issues in embedded systems
 * WebSockets and communications between embedded devices
 
 
@@ -48,8 +48,7 @@ _Tips_:
 
 UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>```. 
 
-### Hello World!
-__TODO:__ _This exercise_ 
+### Hello World! 
 
 --------------------
 ### Square Wave Generator
@@ -71,8 +70,10 @@ Now you will put all that knowledge to good use.
 6. Use your estimates to calculate what you expect the maximum frequency can be when generating three square waves.
 7. Modify your code to generate three square waves and measure the maximum possible frequency, how close was your estimation in 6.?
 
-The Arduino IDE abstracts the underlying hardware a little with functions such as ```digitalWrite()``` to make it easier for the developer. However, this comes at a cost in terms of performance. 
+The Arduino IDE abstracts the underlying hardware with functions such as ```digitalWrite()```. These abstractions are useful, they make it easier for the developer to use, and they allow for the same API to be used on multiple different devices. However, such abstractions come at a cost in terms of performance. 
 If we dive a little bit deeper, then we can improve the maximum frequency of our generator.
+
+In the last lecture we examined the address map of our TinyPico device and how we can use pointers to manipulate and interact with hardware. In the next challenge instead of using the Arduino function calls to interact with the GPIO pins, I want you to use pointers to directly interact with the hardware.
 
 To interact with the GPIO  
 
