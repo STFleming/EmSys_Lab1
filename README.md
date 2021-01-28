@@ -1,9 +1,5 @@
 # EmSys Lab1
-
-| Acronym | Meaning        |
-|---------|----------------|
-| LA      | Logic Analyser |
-| GPIO    | General Purpose Input Output |
+Welcome to the first EmSys Labs.
 
 This lab consists of a number of exercises:
 * _"What is your secret word?"_ -- where you will use pulseview to determine the secret word your ESP32 is transmitting. 
@@ -17,6 +13,15 @@ This lab aims to familiarise you with:
 * timing issues in embedded systems
 * WebSockets and communications between embedded devices
 
+
+### Useful Acronyms and Terms
+| Acronym/Term | Meaning        |
+|---------|----------------|
+| LA      | Logic Analyser      |
+| GPIO    | General Purpose Input Output |
+| UART    | Uniersal Asynchronous Receiver-Transmitter |
+
+----------------------------
 ### Submission guide
 __TODO:__ _logbook format_
 
@@ -27,21 +32,37 @@ __TODO:__ _Include a diagram showing the wiring between the LA and ESP32_
 ### What is your secret word?
 All the ESP32 devices in the lab have been preloaded with a program that is sending a unique word for each group over some UART pins. Your task here is to find out what your groups unique word is using your LA and PulseView.
 
-1. Open PulseView ```pulseview``` and capture a trace. [[guide: capturing a trace with pulseview](https://github.com/STFleming/EmSys_Lab1/tree/main/pulseview_capture)]
-2. Examine the signals on your waveform, try and identify which signals you think might be a UART Rx signal 
-3. Using the PulseView low-level protocol decoder decode the signal that you think is trasmitting your secret word. [[guide: using the pulseview low-level protocol decoder](https://github.com/STFleming/EmSys_Lab1/tree/main/pulseview_capture)].
+1. Open PulseView ```pulseview``` and capture a trace. [[video guide: capturing a trace with pulseview](https://youtu.be/nhTuqYAT4OI)]
+
+Your trace should look something similar to this.
+![](imgs/hidden_UART_signal.png)
+
+2. Examine the signals on your waveform, try and identify which signals you think might be a UART Tx signal. All the other signals are randomly changing. The UART Tx channel will be regularly repeating the same word in ASCII. 
+3. Using the PulseView low-level protocol decoder decode the signal that you think is trasmitting your secret word. [[video guide: using the pulseview low-level protocol decoder](https://youtu.be/hBrg0VJTNWA)].
 4. Write your secret word in your logbook.
 
 _Tips_: 
-* _The length of the wires connecting your ESP32 and your LA are quite long, this means that there may be lots of noise and you may get a few incorrect characters in your word. Look at a few of them until you see a word that makes sense_
+* _Only common Baud rates are used. The UART Tx pin will be transimitting on only one of these 9600, 38400, and 115200_
 * _You do not know the baud rate of the signal you are trying to intercept, this may require trial and error to find the correct parameter_
 * _However, you have 8 data bits, and no parity bits._
+
+UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>```. 
 
 ### Hello World!
 __TODO:__ _This exercise_ 
 
 --------------------
 ### Square Wave Generator
+
+Next you are going to use Arduino to generate square waves from your device and measure the maximum possible frequency. In the second lecture there I explained the following which will be useful for this lab:
+* The basic structure of an Arduino sketch i.e. what the ``setup()`` and ``loop()`` functions do.
+* How to drive an output pin ``HIGH`` and ``LOW`` using ``digitalWrite()`` [[Arduino digitalWrite documentation](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)].
+* How to make your tinyPico wait using ``delay()`` and ``delayMicroseconds()`` [[Arduino Delay Documentation](https://www.arduino.cc/reference/en/language/functions/time/delay/)].
+* What a pointer, the address map of the TinyPico, and how we interact with hardware through pointers.
+
+If you missed the lecture or want to recap these, the recording is available [[here]()] ``<passcode: >``.
+Now you will put all that knowledge to good use.
+
 1. Using ```digitalWrite(pin, HIGH|LOW)``` write code to generate a square wave with the highest frequency you possible can. 
 2. Using your LA measure this maximum frequency and report it in your logbook. 
 3. Do you notice anything unusual about the output? Run a resonable length capture to maybe see something strange (1M samples at 24MHz). Comment on what you think might be causing this?
