@@ -13,7 +13,7 @@ This lab aims to familiarise you with:
 * Timing issues in embedded systems
 * WebSockets and communications between embedded devices
 
-[[A list of useful acronym and terms can be found here]()]
+[[A list of useful acronym and terms can be found here](https://github.com/STFleming/EmSys_Lab1/tree/main/acronyms)]
 
 ----------------------------
 ### Submission guide
