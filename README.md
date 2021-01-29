@@ -47,7 +47,7 @@ UART was discussed in the first lecture briefly, if you'd like to review the fir
 ### Hello World! 
 In the Lab1 git repository there is some code that will print out ``HelloWorld`` on pin 23 of the TinyPico which is connected to channel D0 on your LA. [[link to the code](https://github.com/STFleming/EmSys_Lab1/blob/main/src/HelloWorld/HelloWorld.ino)] 
 
-Do the following for your logbook:
+Do the following, recording what your doing in your logbook:
 1. Modify the code to print a message of your choice
 2. Compile and upload the code to your board.
 If you have decided to try the command line option for compilation and upload then simply type into your command prompt: ``make HelloWorld``
@@ -78,16 +78,21 @@ Now you will put all that knowledge to good use testing the limits of your board
 The Arduino IDE abstracts the underlying hardware with functions such as ```digitalWrite()```. These abstractions are useful, they make it easier for the developer to use, and they allow for the same API to be used on multiple different devices. However, such abstractions come at a cost in terms of performance. 
 If we dive a little bit deeper, then we can improve the maximum frequency of our generator.
 
-In the last lecture we examined the address map of our TinyPico device and how we can use pointers to manipulate and interact with hardware. In the next challenge instead of using the Arduino function calls to interact with the GPIO pins, I want you to use pointers to directly interact with the hardware.
+In the last lecture we examined the address map of our TinyPico device. We also looked into how we can use pointers to manipulate and interact with hardware registers. In the next challenge instead of using the Arduino function calls to interact with the GPIO pins, I want you to use pointers and bit manipulation to directly interact with the hardware. 
 
-To interact with the GPIO  
+In the [ESP32 Technical Reference Manual](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf), on page 61, you will find the description of six hardware registers that can be used to control the GPIO pins. 
 
-In the [ESP32 Technical Reference Manual](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf) you will find the description of three registers that can be used to control the GPIO pins. 
+| Register name     | Address    | R/W | Width| Info |
+|-------------------|------------|-----|-------|------|
+| GPIO_ENABLE_REG    | 0x3FF44020 | R/W | 32  | bits 0-31 of this register can be set/cleared to enable/disable GPIOs 0-31 |
+| GPIO_OUT_W1TS_REG  | 0x3FF44008 | WO  | 32  | setting bits 0-31 of this register will set the corresponding GPIOs (0-31) to go HIGH |
+| GPIO_OUT_W1TC_REG  | 0x3FF44010 | WO  | 32  | setting bits 0-31 of this register will set the corresponding GPIOs (0-31) to go LOW      |
+| GPIO_ENABLE1_REG   | 0x3FF4402C | R/W | 32  | bits 0-7 of this register can be set/cleared to enable/disable GPIOs 32-39 |
+| GPIO_OUT1_W1TS_REG | 0x3FF44014 | WO  | 32  | setting bits 0-7 of this register will set the corresponding GPIOs (32-39) to go HIGH     |
+| GPIO_OUT1_W1TC_REG | 0x3FF44018 | WO  | 32  | setting bits 0-7 of this register will set the corresponding GPIOs (32-39) to go LOW      |
 
-```
-        REG_WRITE( <register address>, <BITS>);
+To manipulate these registers we will need to use pointers and bitwise operations, for examples of bitwise operations see [[bitwise operations in c](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)].
 
-```
 TODO:
 * get the maximum freq using register manipulation
 * calculate the arduino overheads 
