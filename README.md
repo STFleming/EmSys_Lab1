@@ -75,10 +75,15 @@ Now you will put all that knowledge to good use testing the limits of your board
 6. Use your estimates to calculate what you expect the maximum frequency can be when generating three square waves.
 7. Modify your code to generate three square waves and measure the maximum possible frequency, how close was your estimation in 6.?
 
-The Arduino IDE abstracts the underlying hardware with functions such as ```digitalWrite()```. These abstractions are useful, they make it easier for the developer to use, and they allow for the same API to be used on multiple different devices. However, such abstractions come at a cost in terms of performance. 
+The Arduino IDE abstracts the underlying hardware with functions such as ```digitalWrite()```. 
+These abstractions are useful, they make it easier for the developer to use, and they allow for the same API to be used on multiple different devices. 
+However, such abstractions come at a cost in terms of performance. 
 If we dive a little bit deeper, then we can improve the maximum frequency of our generator.
 
-In the last lecture we examined the address map of our TinyPico device. We also looked into how we can use pointers to manipulate and interact with hardware registers. In the next challenge instead of using the Arduino function calls to interact with the GPIO pins, I want you to use pointers and bit manipulation to directly interact with the hardware. 
+In the last lecture we examined the address map of our TinyPico device. 
+We also looked into how we can use pointers to manipulate and interact with hardware registers. 
+In the next challenge instead of using the Arduino function ```digitalWrite()``` to interact with the GPIO pins, 
+I want you to use pointers and bit manipulation to directly interact with the hardware. 
 
 In the [ESP32 Technical Reference Manual](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf), on page 61, you will find the description of six hardware registers that can be used to control the GPIO pins. 
 
@@ -86,16 +91,30 @@ In the [ESP32 Technical Reference Manual](https://www.espressif.com/sites/defaul
 |-------------------|------------|-----|-------|------|
 | GPIO_ENABLE_REG    | 0x3FF44020 | R/W | 32  | bits 0-31 of this register can be set/cleared to enable/disable GPIOs 0-31 |
 | GPIO_OUT_W1TS_REG  | 0x3FF44008 | WO  | 32  | setting bits 0-31 of this register will set the corresponding GPIOs (0-31) to go HIGH |
-| GPIO_OUT_W1TC_REG  | 0x3FF44010 | WO  | 32  | setting bits 0-31 of this register will set the corresponding GPIOs (0-31) to go LOW      |
+| GPIO_OUT_W1TC_REG  | 0x3FF4400C | WO  | 32  | setting bits 0-31 of this register will set the corresponding GPIOs (0-31) to go LOW      |
 | GPIO_ENABLE1_REG   | 0x3FF4402C | R/W | 32  | bits 0-7 of this register can be set/cleared to enable/disable GPIOs 32-39 |
 | GPIO_OUT1_W1TS_REG | 0x3FF44014 | WO  | 32  | setting bits 0-7 of this register will set the corresponding GPIOs (32-39) to go HIGH     |
 | GPIO_OUT1_W1TC_REG | 0x3FF44018 | WO  | 32  | setting bits 0-7 of this register will set the corresponding GPIOs (32-39) to go LOW      |
 
-To manipulate these registers we will need to use pointers and bitwise operations, for examples of bitwise operations see [[bitwise operations in c](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)].
+_note: W1TS == "write 1 to set", W1TC == "write 1 to clear"_
 
-TODO:
-* get the maximum freq using register manipulation
-* calculate the arduino overheads 
+To manipulate these registers we will need to use pointers and bitwise operations, for examples of bitwise operations see [[bitwise operations in c](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)].
+Remember to create a pointer to a specific address in C you can do the following:
+
+```C
+uint32_t *gpio_enable_reg = (uint32_t *)0xDEADBEEF; // creates a uint32_t pointer pointing at address 0xDEADBEEF
+*gpio_enable_reg = 1; // sets bit 1 and 0 elsewhere
+```
+
+Do the following steps:
+1. Using the registers listed above create a square wave on a single pin that oscillates at the highest frequency you can. You do not need to worry about it being an exact square wave, it doesn't need to have equal time spent HIGH or LOW per period. 
+2. Record the maximum frequency in your logbook and take a screenshot of your pulseview trace.
+3. Next write a sketch that generates six square waves all with the highest frequency possible. 
+4. Record the maximum frequency of the six square wave signals in your logbook and take a pulseview screenshot.
+5. Comment on how this is different from when you were using the Arduino ``digitalWrite()`` function. Why do you think this is the case?
+6. Next write a sketch that generates eight square wave signals with the maximum frequency possible 
+7. Record the maximum frequency and include a screenshot of pulseview in your logbook.
+8. How has this changed from the sketch where six signals were generated, why do you think this is?
 
 ----------------------
 ### dotDevice -- Communicating with other embedded systems
