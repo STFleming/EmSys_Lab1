@@ -135,7 +135,7 @@ To view the virtual-labs open your browser and navigate to the following:
 | __EmSysExternal__ | [http://ec2-18-222-206-236.us-east-2.compute.amazonaws.com:4000](http://ec2-18-222-206-236.us-east-2.compute.amazonaws.com:4000)   | For devices all other devices -- viewable from anywhere    |
 
 
-To communicate with our dotDevice we will be using ArduinoWebSockets [[link](https://github.com/gilmaimon/ArduinoWebsockets)]. In [[src/WSHelloWorld_EmSysLocal]()] there is an example that sends a ``"Hello World!"`` message to the __EmSysLocal__ server with WebSockets that you can use as a base for communicating with your ``dotDevice``. There is also an example [[src/WSHelloWorld_EmSysRemote]()] for communicating with the __EmSysExternal__ server.  
+To communicate with our dotDevice we will be using ArduinoWebSockets [[link](https://github.com/gilmaimon/ArduinoWebsockets)]. In [[src/WSHelloWorld_EmSysLocal]()] there is an example that sends a ``"Hello World!"`` message to the __EmSysLocal__ server with WebSockets that you can use as a base for communicating with your ``dotDevice``. There is also an example [[src/WSHelloWorld_EmSysExternal](https://github.com/STFleming/EmSys_Lab1/blob/main/src/WSHelloWorld_EmSysExternal/WSHelloWorld_EmSysExternal.ino)] for communicating with the __EmSysExternal__ server.  
 Modify the example code to see if you can make it send a message to the chat section of your relevant server and see if you can spot it.
 
 Task list
