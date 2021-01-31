@@ -119,14 +119,26 @@ Do the following steps:
 ----------------------
 ### dotDevice -- Communicating with other embedded systems
 
-In the final part of this lab we are going to use WebSockets to communicate with a central server in the EmSys lab. The central server contains a virtual world, with a virtual embedded device for each of the lab groups on the course. This virtual embedded device is called a ``dotDevice`` and it has a data sheet that can be found [[here](https://github.com/STFleming/EmSys_dotDevice)].
+In the final part of this lab we are going to use WebSockets to communicate with one of two central EmSys lab servers: 
+* Server Address:```cs-s-fleming-pc.swan.ac.uk``` -- for devices physically located within the Foundry rooms 203/204. We will call this server __EmSysLocal__. 
+* Server Address:```ec2-18-222-206-236.us-east-2.compute.amazonaws.com``` -- an Amazon Web Services (AWS) server for devices not physically located in the Foundry rooms 203/204, i.e. kits people have bought for use at home. We will call this server __EmSysRemote__.
+
+Each of these central servers contains a virtual world, with a virtual embedded device for each of the lab groups on the course. This virtual embedded device is called a ``dotDevice`` and it has a data sheet that can be found [[here](https://github.com/STFleming/EmSys_dotDevice)].
 
 You can make your dotDevice move around, change colour, change size, and say something. It also has some command memory and a timer, allowing you to load in a sequence and execute it. However, there is a strict protocol for interacting with your dotDevice, which you can find in the data sheet.
 
-To communicate with our dotDevice we will be using WebSockets. You can use the example here as a base to start with. However, if you send HelloWorld to the EmSys server nothing will happen. 
+To view the virtual-labs open your browser and navigate to the following:
 
-There are two servers. One for dotDevices connected within the lab, and another for external dotDevices that people have at home.
+| __name__ |  __url__ | __info__  |
+|---------|----------|-----------|
+| __EmSysLocal__ | [http://cs-s-fleming-pc.swan.ac.uk:4000](http://cs-s-fleming-pc.swan.ac.uk:4000)   | For devices physically located within the Foundry rooms 203/204 __Must be connected to the VPN to view this page__    |
+| __EmSysExternal__ | [http://ec2-18-222-206-236.us-east-2.compute.amazonaws.com:4000](http://ec2-18-222-206-236.us-east-2.compute.amazonaws.com:4000)   | For devices all other devices -- viewable from anywhere    |
 
+
+To communicate with our dotDevice we will be using ArduinoWebSockets [[link](https://github.com/gilmaimon/ArduinoWebsockets)]. In [[src/WSHelloWorld_EmSysLocal]()] there is an example that sends a ``"Hello World!"`` message to the __EmSysLocal__ server with WebSockets that you can use as a base for communicating with your ``dotDevice``. There is also an example [[src/WSHelloWorld_EmSysRemote]()] for communicating with the __EmSysExternal__ server.  
+Modify the example code to see if you can make it send a message to the chat section of your relevant server and see if you can spot it.
+
+Task list
 1. Make your dotDevice say something.
 2. Make your dotDevice do a dance.
 3. 
