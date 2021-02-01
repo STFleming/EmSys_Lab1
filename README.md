@@ -17,7 +17,36 @@ This lab aims to familiarise you with:
 
 ----------------------------
 ### Submission guide
-__TODO:__ _logbook format_
+Assessment will consist of both code submissions and a logbook for the lab, written in markdown format. You will use git to manage and submit your logbook, and each group will have a private GitHub repository created for them. Don't worry if you are unfamiliar with ```git```, we will be using basic features. A good guide on ```git``` can be found here [[link](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)].
+
+If you need to install git, please follow the instructions [[here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)].
+
+An example of what your empty logbook repository will look like can be found [[here](https://github.com/STFleming/EmSys_Example_Lab1_logbook)]. When you get an email with your repository, use the following commands to get access to it:
+
+```
+        git clone <LINK TO YOUR PRIVATE LOGBOOK REPOSITORY>
+```
+
+The bulk of the text of your logbook will be contained in ```README.md``` in the top-level directory of your private repository. You will add your answers and discuss the lab in this document using a markup language called markdown. A useful guide for markdown can be found [[here](https://guides.github.com/features/mastering-markdown/)]. 
+
+Say you answer a question in the ``README.md`` of your private repository. Now you need to save the changes. Type the following commands to push your changes to GitHub.
+
+```
+        git add README.md
+        git commit -m "some text describing the changes you've made"
+        git push
+```
+The commands above will then push the changes that you have made to the GitHub repository. Don't worry about making mistakes here; you can push further changes to your answers, only the final submission will be marked. This is the very basics of git, a better tutorial can be found [[here](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)].
+
+Along with discussions in the ``README.md`` we also expect code submissions for some of the questions. For each of the code submissions a template Arduino sketch has been created. Modify these templates with your code and push your changes in the same way you would with the ``README.md`` file above. For example, say we made changes to the template sketch, [HelloWordl/HelloWorld.ino](HelloWordl/HelloWorld.ino). We would then push our changes with the following commands:
+
+```
+        git add HelloWorld/HelloWorld.ino 
+        git commit -m "some text describing the changes you've made"
+        git push
+```
+
+----------------------------------
 
 ### How your LA and ESP32 are connected
 ![](imgs/wiring_diagram.svg)
@@ -143,10 +172,9 @@ Once you have managed to send a message to your relevant server you need to look
 1. Make your dotDevice say something. Text must appear smoothly and not jitter.
 2. Make your dotDevice do a dance.
 3. Make your dotDevice change colour periodically. 
-4. Keep your code in your logbook in section (src/dotDevice/task1)
 5. Document your routine and challenges you found while developing it
 
 If you are on __EmSysLocal__ you may have noticed that you dotDevice is not always very responsive due to the amount of WiFi traffic on the network. Similarily, for the __EmSysExternal__ folks the high variation in latencies when sending you commands to a server in Ohio America might be causing its behaviour to be irratic. Luckily the dotDevice is programmable and contains some onboard command memory.
 
 1. Think about how you can use the onboard command memory of your dotDevice to improve it's performance, document your thoughts in your logbook.
-2. Use the programmable memory of your dotDevice to program it to do the routine (or something similar) to the previous one keep, put your source code in (src/dotDevice/task2) of your logbook. 
+2. Use the programmable memory of your dotDevice to program it to do the routine (or something similar) to the previous one keep. 
