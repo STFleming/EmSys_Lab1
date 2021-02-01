@@ -138,7 +138,15 @@ To view the virtual-labs open your browser and navigate to the following:
 To communicate with our dotDevice we will be using ArduinoWebSockets [[link](https://github.com/gilmaimon/ArduinoWebsockets)]. In [[src/WSHelloWorld_EmSysLocal]()] there is an example that sends a ``"Hello World!"`` message to the __EmSysLocal__ server with WebSockets that you can use as a base for communicating with your ``dotDevice``. There is also an example [[src/WSHelloWorld_EmSysExternal](https://github.com/STFleming/EmSys_Lab1/blob/main/src/WSHelloWorld_EmSysExternal/WSHelloWorld_EmSysExternal.ino)] for communicating with the __EmSysExternal__ server.  
 Modify the example code to see if you can make it send a message to the chat section of your relevant server and see if you can spot it.
 
-Task list
-1. Make your dotDevice say something.
+Once you have managed to send a message to your relevant server you need to look at the dotDevice datasheet and get it to complete the following tasks, recording them in your logbook. You should have already been assigned a unique ID for your dotDevice, if you are not sure what your unique dotDevice ID is please ask a question in the ``raise-your-hand`` Discord channel and a demonstrator will be of assistance. 
+
+1. Make your dotDevice say something. Text must appear smoothly and not jitter.
 2. Make your dotDevice do a dance.
-3. 
+3. Make your dotDevice change colour periodically. 
+4. Keep your code in your logbook in section (src/dotDevice/task1)
+5. Document your routine and challenges you found while developing it
+
+If you are on __EmSysLocal__ you may have noticed that you dotDevice is not always very responsive due to the amount of WiFi traffic on the network. Similarily, for the __EmSysExternal__ folks the high variation in latencies when sending you commands to a server in Ohio America might be causing its behaviour to be irratic. Luckily the dotDevice is programmable and contains some onboard command memory.
+
+1. Think about how you can use the onboard command memory of your dotDevice to improve it's performance, document your thoughts in your logbook.
+2. Use the programmable memory of your dotDevice to program it to do the routine (or something similar) to the previous one keep, put your source code in (src/dotDevice/task2) of your logbook. 
