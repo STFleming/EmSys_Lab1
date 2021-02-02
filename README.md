@@ -1,6 +1,8 @@
 # EmSys Lab1
 Welcome to the first EmSys Labs.
 
+__The lab setup guide can be found [[here](https://github.com/STFleming/EmSys_labSetup)]__.
+
 This lab consists of a number of exercises:
 * _"What is your secret word?"_ -- where you will use pulseview to determine the secret word your ESP32 is transmitting. 
 * _"Hello World!"_  -- where you will program your ESP32 to send a UART message of your own.
@@ -17,9 +19,12 @@ This lab aims to familiarise you with:
 
 ----------------------------
 ### Submission guide
-Assessment will consist of both code submissions and a logbook for the lab, written in markdown format. You will use git to manage and submit your logbook, and each group will have a private GitHub repository created for them. Don't worry if you are unfamiliar with ```git```, we will be using basic features. A good guide on ```git``` can be found here [[link](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)].
+Assessment will consist of both code submissions and a logbook for the lab, written in markdown format. You will use git to manage and submit your logbook, and each group will have a private GitHub repository created for them. Don't worry if you are unfamiliar with ```git```, we will be using basic features. 
 
-If you need to install git, please follow the instructions [[here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)].
+__An example of what your lab logbook repository will look like can be found [[here](https://github.com/STFleming/EmSys_Example_Lab1_logbook)].__ 
+
+* A good guide on ```git``` can be found here [[link](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)].
+* If you need to install git, please follow the instructions [[here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)].
 
 An example of what your empty logbook repository will look like can be found [[here](https://github.com/STFleming/EmSys_Example_Lab1_logbook)]. When you get an email with your repository, use the following commands to get access to it:
 
