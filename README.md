@@ -75,6 +75,7 @@ _Tips_:
 * _Only common Baud rates are used. The UART Tx pin will be transimitting at only one of the following baudrates: 9600, 38400, and 115200_
 * _You do not know the baud rate of the signal you are trying to intercept, this may require trial and error to find the correct parameter_
 * _However, you have 8 data bits, and no parity bits._
+* _Your word will be separated by two ``[0A]`` ASCII characters (which means new line)._
 
 UART was discussed in the first lecture briefly, if you'd like to review the first lecture the recording is available [[here](https://swanseauniversity.zoom.us/rec/share/R7U9ldmf8-D5dC1GzypI1Fmygk_uMk0AHLJSNAJh9jKzSaDWy91D_K8dqezqFnjf.dxRs8jgIIbZQ9eEK )] ``<passcode: Rq7!2vJ7>``. A nice more detailed discussion of the UART protocol can be found [[here](https://www.circuitbasics.com/basics-uart-communication/)]. 
 
