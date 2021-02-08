@@ -1,10 +1,11 @@
 TINYPICO=/dev/ttyUSB0
-ARDUINO_CLI=/home/stf0x2a/teaching/EmSys/Labs/EmSys_labSetup/arduino-cli/arduino-cli
+EMSYS_COMPILE=~/EmSys/arduino-cli compile --fqbn esp32:esp32:tinypico
+EMSYS_UPLOAD=~/EmSys/arduino-cli upload --fqbn esp32:esp32:tinypico
 
 HelloWorld: src/HelloWorld/HelloWorld.ino
-		$(ARDUINO_CLI) compile --fqbn esp32:esp32:tinypico src/HelloWorld 
-		$(ARDUINO_CLI) upload -p $(TINYPICO) --fqbn esp32:esp32:tinypico src/HelloWorld 
+		$(EMSYS_COMPILE) src/HelloWorld 
+		$(EMSYS_UPLOAD) -p $(TINYPICO) src/HelloWorld 
 
-WSHelloWorld_EmSysExternal: src/WSHelloWorld_EmSysExternal/WSHelloWorld_EmSysExternal.ino
-		$(ARDUINO_CLI) compile --fqbn esp32:esp32:tinypico src/WSHelloWorld_EmSysExternal 
-		$(ARDUINO_CLI) upload -p $(TINYPICO) --fqbn esp32:esp32:tinypico src/WSHelloWorld_EmSysExternal 
+WSHelloWorld: src/WSHelloWorld/WSHelloWorld.ino
+		$(EMSYS_COMPILE) src/WSHelloWorld 
+		$(EMSYS_UPLOAD) -p $(TINYPICO) src/WSHelloWorld 
