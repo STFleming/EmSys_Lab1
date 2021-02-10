@@ -66,6 +66,7 @@ To communicate with our dotDevice we will be using ArduinoWebSockets [[link](htt
 ```
 
 If you are using your own device at home then please change you WiFi details appropriately... and take care when pushing your code to your git logbook not to accidentally publish your WiFi credentials.
+You also need to change the example code so that instead of sending websocket messages to the server ``ws://192.168.1.2:1234`` you need to send it to ``ws://ec2-3-12-197-132.us-east-2.compute.amazonaws.com:1234``.
 
 You can use the [[src/WSHelloWorld](src/WSHelloWorld)] code as a base for communicating with your ``dotDevice``.  
 Modify the example code to see if you can make it send a message to the chat section of the virtual lab and see if you can spot it. 
