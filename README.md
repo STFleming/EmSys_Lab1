@@ -52,7 +52,7 @@ Each of the pins next to the TinyPico correspond to GPIO pins in [[this diagram 
 In the lab we are going to use WebSockets to communicate with a virtual EmSys lab server. 
 To view the EmSys virtual Lab visit the following link (_no VPN required_)
 
-[[http://ec2-3-140-251-52.us-east-2.compute.amazonaws.com:4000/](http://ec2-3-140-251-52.us-east-2.compute.amazonaws.com:4000/)]
+[[http://ec2-18-216-196-124.us-east-2.compute.amazonaws.com:4000/](http://ec2-18-216-196-124.us-east-2.compute.amazonaws.com:4000/)]
 
 This server contains a virtual world, with a virtual embedded device for each of the lab groups on the course. This virtual embedded device is called a ``dotDevice`` and it has a data sheet that can be found here: [[__DotDevice Datasheet__](https://github.com/STFleming/EmSys_dotDevice)].
 
@@ -66,7 +66,7 @@ To communicate with our dotDevice we will be using ArduinoWebSockets [[link](htt
 ```
 
 If you are using your own device at home then please change you WiFi details appropriately... and take care when pushing your code to your git logbook not to accidentally publish your WiFi credentials.
-You also need to change the example code so that instead of sending websocket messages to the server ``ws://192.168.1.2:1234`` you need to send it to ``ws://ec2-3-140-251-52.us-east-2.compute.amazonaws.com:1234``.
+You also need to change the example code so that instead of sending websocket messages to the server ``ws://192.168.1.2:1234`` you need to send it to ``ws://ec2-18-216-196-124.us-east-2.compute.amazonaws.com:1234``.
 
 You can use the [[src/WSHelloWorld](src/WSHelloWorld)] code as a base for communicating with your ``dotDevice``.  
 Modify the example code to see if you can make it send a message to the chat section of the virtual lab and see if you can spot it. 
