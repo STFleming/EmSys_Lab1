@@ -52,7 +52,7 @@ Each of the pins next to the TinyPico correspond to GPIO pins in [[this diagram 
 In the lab we are going to use WebSockets to communicate with a virtual EmSys lab server. 
 To view the EmSys virtual Lab visit the following link (_no VPN required_)
 
-[[http://ec2-3-16-149-187.us-east-2.compute.amazonaws.com:4000/](http://ec2-3-16-149-187.us-east-2.compute.amazonaws.com:4000/)]
+[[http://ec2-3-139-102-167.us-east-2.compute.amazonaws.com:4000/](http://ec2-3-139-102-167.us-east-2.compute.amazonaws.com:4000/)]
 
 This server contains a virtual world, with a virtual embedded device for each of the lab groups on the course. This virtual embedded device is called a ``dotDevice`` and it has a data sheet that can be found here: [[__DotDevice Datasheet__](https://github.com/STFleming/EmSys_dotDevice)].
 
